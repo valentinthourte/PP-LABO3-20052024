@@ -1,0 +1,151 @@
+header {
+    background-image: url("../assets/images/background.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+  body {
+    background-color: rgb(227,192,199);
+  }
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.containerBackgroundImg {
+    display: grid;
+    height: 70vh; 
+    overflow: hidden;
+}
+
+.backgroundImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+.tituloIcono {
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logoPrincipal {
+    width: 50%;
+    height: 50%;
+}
+.navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(255,255,255,0.3);
+    
+    position: absolute;
+    width: 100%;
+}
+
+header nav ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+#formCryptos {
+    width: 50%;
+    padding: 5px;
+    border: 2px solid rgb(251,218,218);
+    padding: 20px;
+}
+header nav ul li {
+    margin-top: 3vh;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 20px;
+    opacity: 1;
+}
+
+.left {
+    justify-content: left;
+    text-align: left;
+}
+
+.icon {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.right {
+    text-align: end;
+    justify-content: end;
+}
+
+.form-container {
+    display: block;
+    justify-content: center;
+    width: 50%;
+}
+
+.input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.input label {
+    flex: 1;
+    text-align: left;
+}
+
+.input input,
+.input select {
+    flex: 2;
+    margin-left: 10px; 
+}
+
+.container-table {
+    margin-top: 5px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .container-table table {
+    width: 75%;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  .container-table table th,
+  .container-table table td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .table-stripped thead tr {
+    background-color: darkgray;
+  }
+  
+  .table-stripped tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }

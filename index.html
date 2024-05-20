@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptos</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <script src="scripts/index.js" type="module" defer></script>
+</head>
+<body>
+    <header>
+        <div class="flex navbar">
+            <div class="icono left flex">
+                <img src="./assets/images/logo.svg" alt="Logo Principal" class="logoPrincipal left">
+                <p class="tituloIcono left">Criptomanager</p>
+            </div>
+            <span>
+                <nav>
+                    <ul>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Anuncios</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contrato</a></li>
+                    </ul>
+                </nav>
+            </span>
+        </div>
+    </header>
+    <div class="containerBackgroundImg">
+        <img src="assets/images/background.jpeg" alt="" class="backgroundImg">
+    </div>
+
+
+        <h1 class="center">Administrador de monedas</h1>
+    
+        <div class="formulario flex center">
+            <form action="" method="POST" id="formCryptos" class="center">
+                <input type="text" class="hidden" name="id" id="id">
+                <input type="text" class="hidden" name="fechaCreacion" id="fechaCreacion">
+                
+                <div class="inputs center">
+                    <div class="input flex">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" placeholder="Ingrese nombre.." class="right">
+                    </div>
+                    <div class="input flex">
+                        <label for="simbolo">Simbolo</label>
+                        <input type="text" name="simbolo" id="simbolo" placeholder="Ingrese simbolo.." class="right">
+                    </div>
+                    <div class="input flex">
+                        <label for="precioActual">Precio actual</label>
+                        <input type="number" name="precioActual" id="precioActual" placeholder="Ingrese precio.." class="right">
+                    </div>
+                    <div class="input flex">
+                        <label for="tipoConsenso">Tipo de Consenso</label>
+                        <select id="tipoConsenso" name="tipoConsenso" class="right">
+                            <option value="pow" selected="selected">Proof of Work</option>
+                            <option value="pos">Proof of Stake</option>
+                          </select>
+                    </div>
+                    <div class="input flex">
+                        <label for="cantidadCirculacion">Cantidad en Circulación</label>
+                        <input type="number" name="cantidadCirculacion" id="cantidadCirculacion" placeholder="Ingrese Cantidad.." class="right">
+                    </div>
+                    <div class="input flex">
+                        <label for="algoritmo">Algoritmo</label>                    
+                        <select id="algoritmo" class="right">
+                            <option value="sha256" selected="selected">SHA-256</option>
+                            <option value="ethash">Ethash</option>
+                            <option value="scrypt">Scrypt</option>
+                            <option value="x11">X11</option>
+                          </select>
+                    </div>
+                    <div class="input flex">
+                        <label for="sitio">Sitio Web Oficial</label>
+                        <input type="text" name="sitio" id="sitio" placeholder="Ingrese Sitio.." class="right">
+                    </div>
+                </div>
+                <hr>
+                <button type="submit" class="btn">Guardar</button>
+                <button type="reset" class="btn red">Cancelar</button>
+                <button type="submit" class="btn red eliminar">Eliminar</button>
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="container-table center">
+        <button class="btn red right" id="botonBorrarTodo">Borrar todo</button>
+        <table id="table-items" class="table-items table-stripped center">
+          <thead>
+            <tr class="">
+              <th>Nombre</th>
+              <th>Simbolo</th>
+              <th>Fecha Creacion</th>
+              <th>Precio Actual</th>
+              <th>Consenso</th>
+              <th>Cantidad Circulacion</th>
+              <th>Algoritmo</th>
+              <th>Sitio Web</th>
+            </tr>
+          </thead>
+
+          <tbody class="tbodyx"></tbody>
+        </table>
+      </div>
+
+    <div id="spinner" class="spinner hidden">
+        <img src="./assets/images/cryptocurrency.png" alt="Spinner" class="spinner-img">
+    </div>
+
+
+</body>
+</html>
