@@ -17,6 +17,7 @@ async function onInit() {
 
 function eventListeners() {
     document.getElementById("botonBorrarTodo").addEventListener("click", borrarTodo);
+    document.addEventListener("click", (e) => (manejarClick(e)));
     const formulario = document.getElementById("formCryptos");
     formulario.addEventListener("submit", async (e) => {
         e.preventDefault(); 
@@ -34,7 +35,7 @@ function eventListeners() {
                 StringHelper.stringHasValue(cryptoId) ? cryptoId : await obtenerId(),
                 formulario.querySelector("#nombre").value,
                 formulario.querySelector("#simbolo").value,
-                fecha,
+                StringHelper.stringHasValue(cryptoId) ? fecha : new Date(),
                 formulario.querySelector("#precioActual").value,
                 selectConsenso.options[selectConsenso.selectedIndex].text,
                 formulario.querySelector("#cantidadCirculacion").value,
@@ -81,6 +82,50 @@ async function cargarItems() {
         )
         items.push(model);
     });
+}
+
+
+function manejarClick(evento) {
+    if (evento.target.matches("td")) { 
+        let id = evento.target.parentNode.dataset.id; 
+        let crypto = obtenerElementoPorId(items, id);
+        cargarFormulario(
+            crypto.id,
+            crypto.fechaCreacion,
+            crypto.nombre,
+            crypto.simbolo,
+            crypto.precioActual,
+            crypto.consenso,
+            crypto.cantidadCirculacion,
+            crypto.algoritmo,
+            crypto.sitio
+        )
+    }
+}
+
+function cargarFormulario(...datos) {
+    const selectConsenso = document.getElementById("tipoConsenso");
+    const selectAlgoritmo = document.getElementById("algoritmo");
+    const formulario = document.getElementById("formCryptos");
+    formulario.querySelector("#id").value = datos[0];
+    formulario.querySelector("#nombre").value = datos[2];
+    formulario.querySelector("#simbolo").value = datos[3];
+    formulario.querySelector("#fechaCreacion").value = datos[1];
+    formulario.querySelector("#precioActual").value = datos[4];
+    selectConsenso.selectedIndex = indiceOpcionPorTexto(selectConsenso, datos[5]) >= 0  ? indiceOpcionPorTexto(selectConsenso, datos[5]) : 0;
+    selectAlgoritmo.selectedIndex = indiceOpcionPorTexto(selectAlgoritmo, datos[7]) >= 0 ? indiceOpcionPorTexto(selectAlgoritmo, datos[7]) : 0;
+    formulario.querySelector("#cantidadCirculacion").value = datos[6];
+    formulario.querySelector("#sitio").value = datos[8];
+}
+
+function indiceOpcionPorTexto(select, texto) {
+    const options = select.options;
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].text === texto) {
+            return i 
+        }
+    }
+    return -1; 
 }
 
 function formEsValido(formulario) {
@@ -137,6 +182,11 @@ function quitarElementoPorId(lista, id) {
 
 function obtenerIndicePorId(lista, id) {
     return lista.findIndex(obj => obj.id.toString() === id);
+}
+
+function obtenerElementoPorId(lista, id) {
+    let indice = obtenerIndicePorId(lista, id);
+    return lista[indice];
 }
 
 async function obtenerId() {

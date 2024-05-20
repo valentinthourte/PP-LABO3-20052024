@@ -149,3 +149,33 @@ header nav ul li a {
   .table-stripped tbody tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+
+  footer {
+    background-color: darkgray;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  footer nav ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+footer nav ul li {
+    margin-top: 3vh;
+}
+
+footer nav ul li a {
+    color: rgb(46, 45, 45);
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 20px;
+}
