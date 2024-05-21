@@ -35,7 +35,7 @@ function eventListeners() {
                 StringHelper.stringHasValue(cryptoId) ? cryptoId : await obtenerId(),
                 formulario.querySelector("#nombre").value,
                 formulario.querySelector("#simbolo").value,
-                StringHelper.stringHasValue(cryptoId) ? fecha : new Date(),
+                StringHelper.stringHasValue(cryptoId) ? fecha : obtenerFecha(),
                 formulario.querySelector("#precioActual").value,
                 selectConsenso.options[selectConsenso.selectedIndex].text,
                 formulario.querySelector("#cantidadCirculacion").value,
@@ -62,6 +62,11 @@ function eventListeners() {
             guardarCryptos();
         }
     })
+}
+
+function obtenerFecha() {
+    const options = { timeZone: 'America/Argentina/Buenos_Aires', timeZoneName: 'short' };
+    return new Date(options);
 }
 
 async function cargarItems() {
