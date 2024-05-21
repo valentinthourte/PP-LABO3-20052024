@@ -10,8 +10,8 @@ const items = []
 
 async function onInit() {
     eventListeners();
-
     await cargarItems();
+    actualizarTabla();
 }
 
 
